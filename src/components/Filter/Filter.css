@@ -1,0 +1,36 @@
+.filter {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.filter__select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 10px 38px 10px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  transition: background var(--transition-fast);
+}
+
+.filter__select:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.filter__select option {
+  color: var(--color-text-dark);
+  background: #ffffff;
+}
+
+.filter__icon {
+  position: absolute;
+  right: 16px;
+  pointer-events: none;
+  color: #ffffff;
+  font-size: 0.75rem;
+}

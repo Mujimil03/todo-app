@@ -1,0 +1,128 @@
+@keyframes todoEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: var(--color-card-bg);
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  animation: todoEnter 0.28s ease;
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast),
+    opacity 0.2s ease, background var(--transition-med);
+}
+
+.todo-item:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.todo-item--leaving {
+  opacity: 0;
+  transform: translateX(30px) scale(0.97);
+}
+
+.todo-item__text {
+  flex: 1;
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  word-break: break-word;
+  cursor: text;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.todo-item--completed .todo-item__text {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--color-green);
+}
+
+.todo-item__edit-input {
+  flex: 1;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 2px solid var(--color-orange);
+  background: transparent;
+  color: var(--color-text-dark);
+  padding: 2px 0;
+}
+
+.todo-item__edit-input:focus {
+  outline: none;
+}
+
+.todo-item__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.todo-item__btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: #ffffff;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    filter var(--transition-fast);
+}
+
+.todo-item__btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  filter: brightness(1.08);
+}
+
+.todo-item__btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.todo-item__btn--edit {
+  background: #94a0c4;
+  box-shadow: 0 4px 10px rgba(148, 160, 196, 0.4);
+}
+
+.todo-item__btn--complete {
+  background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+  box-shadow: 0 4px 10px rgba(39, 174, 96, 0.4);
+}
+
+.todo-item--completed .todo-item__btn--complete {
+  background: linear-gradient(135deg, #a8e6b8, #7fd39a);
+}
+
+.todo-item__btn--delete {
+  background: linear-gradient(135deg, var(--color-orange), var(--color-orange-dark));
+  box-shadow: 0 4px 10px rgba(244, 114, 43, 0.4);
+}
+
+@media (max-width: 480px) {
+  .todo-item {
+    padding: 13px 14px;
+  }
+
+  .todo-item__btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.78rem;
+  }
+
+  .todo-item__text,
+  .todo-item__edit-input {
+    font-size: 0.92rem;
+  }
+}
